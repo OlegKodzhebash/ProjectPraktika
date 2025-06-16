@@ -120,18 +120,29 @@
     visibility: visible;
 }
 
+/* ИСПРАВЛЕННЫЕ МЕДИА-ЗАПРОСЫ */
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
     }
 
+    /* Скрываем основное меню на мобильных устройствах */
+    nav ul {
+        display: none !important;
+    }
+    
     .desktop-menu {
-        display: none;
+        display: none !important;
     }
 }
 
 @media (min-width: 769px) {
     .mobile-menu {
         display: none;
+    }
+    
+    /* Показываем основное меню на десктопе */
+    nav ul {
+        display: flex !important;
     }
 }
