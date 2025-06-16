@@ -1,119 +1,83 @@
-/* Стили для карточек товаров (без учета стилей библиотек) */
+/* ===== УЛУЧШЕННЫЕ СТИЛИ ДЛЯ САЙТА ROSALIA ===== */
 
-
-/* Улучшенная анимация появления */
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Общие улучшения */
+* {
+  scroll-behavior: smooth;
 }
 
-/* Градиентный фон для карточки */
-.product-card {
-  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-  border: 1px solid rgba(255, 182, 193, 0.2);
-  animation: slideInUp 0.6s ease-out;
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Эффект глянца на изображении */
-.product-image {
+/* ===== ШАПКА САЙТА ===== */
+header {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Логотип с дополнительными эффектами */
+header .text-2xl {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+header .text-2xl:hover {
+  transform: scale(1.05);
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Навигация с подчеркиванием */
+nav ul li a {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* ===== ГЛАВНЫЙ БЛОК ===== */
+#home {
   position: relative;
   overflow: hidden;
 }
 
-.product-image::before {
+#home::before {
   content: '';
   position: absolute;
   top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-  transition: left 0.5s;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(236, 72, 153, 0.3), rgba(244, 114, 182, 0.3));
   z-index: 1;
 }
 
-.product-image:hover::before {
-  left: 100%;
+#home .relative {
+  z-index: 10;
 }
 
-/* Улучшенный эффект hover для всей карточки */
-.product-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(255, 182, 193, 0.3);
-  border-color: rgba(255, 182, 193, 0.4);
-}
-
-/* Анимация для заголовка */
-.product-title {
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.product-title::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #ec4899, #f472b6);
-  transition: all 0.3s ease;
-  transform: translateX(-50%);
-}
-
-.product-card:hover .product-title::after {
-  width: 100%;
-}
-
-/* Улучшенный стиль цены */
-.product-price {
-  background: linear-gradient(45deg, #ec4899, #f472b6);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 2px 4px rgba(236, 72, 153, 0.1);
-  position: relative;
-}
-
-.product-price::before {
-  content: '💰';
-  position: absolute;
-  left: -25px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 0.9em;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.product-card:hover .product-price::before {
-  opacity: 1;
-}
-
-/* Улучшенная кнопка */
-.buy-button {
+/* Улучшенная кнопка в главном блоке */
+#home a {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(45deg, #ec4899, #f472b6, #ec4899);
-  background-size: 200% 200%;
-  animation: gradientShift 3s ease infinite;
-  box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+  box-shadow: 0 8px 20px rgba(236, 72, 153, 0.3);
   transition: all 0.3s ease;
 }
 
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.buy-button::before {
+#home a::before {
   content: '';
   position: absolute;
   top: 0;
@@ -124,63 +88,370 @@
   transition: left 0.5s;
 }
 
-.buy-button:hover::before {
+#home a:hover::before {
   left: 100%;
 }
 
-.buy-button:hover {
+#home a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(236, 72, 153, 0.4);
+}
+
+/* ===== КАРТОЧКИ ТОВАРОВ ===== */
+
+/* Улучшенный контейнер карточек */
+#catalog .grid {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Основные стили карточек */
+.bg-white.rounded-xl.shadow-lg {
+  background: linear-gradient(135deg, #ffffff 0%, #fef7ff 100%) !important;
+  border: 1px solid rgba(236, 72, 153, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  position: relative;
+  overflow: hidden !important;
+}
+
+/* Эффект hover для карточек */
+.bg-white.rounded-xl.shadow-lg:hover {
+  transform: translateY(-12px) scale(1.03) !important;
+  box-shadow: 0 25px 50px rgba(236, 72, 153, 0.25) !important;
+  border-color: rgba(236, 72, 153, 0.3) !important;
+}
+
+/* Градиентная рамка при hover */
+.bg-white.rounded-xl.shadow-lg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, #ec4899, #f472b6, #ec4899);
+  background-size: 300% 300%;
+  opacity: 0;
+  z-index: -1;
+  border-radius: 12px;
+  padding: 2px;
+  transition: opacity 0.3s ease;
+  animation: gradientRotate 3s ease infinite;
+}
+
+.bg-white.rounded-xl.shadow-lg:hover::before {
+  opacity: 1;
+}
+
+@keyframes gradientRotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Стили изображений */
+.bg-white img {
+  transition: all 0.4s ease !important;
+  position: relative;
+}
+
+.bg-white:hover img {
+  transform: scale(1.1) !important;
+  filter: brightness(1.1) saturate(1.2) !important;
+}
+
+/* Эффект блика на изображении */
+.bg-white img::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  z-index: 1;
+  transition: left 0.6s;
+}
+
+.bg-white:hover img::after {
+  left: 100%;
+}
+
+/* Заголовки товаров */
+.bg-white h3 {
+  transition: all 0.3s ease !important;
+  position: relative;
+}
+
+.bg-white h3::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ec4899, #f472b6);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.bg-white:hover h3::after {
+  width: 80%;
+}
+
+.bg-white:hover h3 {
+  color: #ec4899 !important;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(236, 72, 153, 0.4);
 }
 
-.buy-button:active {
-  transform: translateY(0);
+/* Цены товаров */
+.bg-white p.text-pink-500 {
+  background: linear-gradient(45deg, #ec4899, #f472b6) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  filter: drop-shadow(0 2px 4px rgba(236, 72, 153, 0.3));
+  position: relative;
+  transition: all 0.3s ease !important;
 }
 
-/* Добавляем иконку к кнопке */
-.buy-button::after {
+.bg-white p.text-pink-500::before {
+  content: '💰';
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: all 0.3s ease;
+  font-size: 1.2em;
+}
+
+.bg-white:hover p.text-pink-500::before {
+  opacity: 1;
+  left: -25px;
+}
+
+.bg-white:hover p.text-pink-500 {
+  transform: scale(1.1);
+}
+
+/* Кнопки покупки */
+.bg-white button {
+  background: linear-gradient(45deg, #ec4899, #f472b6, #ec4899) !important;
+  background-size: 200% 200% !important;
+  animation: buttonGradient 3s ease infinite !important;
+  box-shadow: 0 6px 20px rgba(236, 72, 153, 0.3) !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+  border: none !important;
+}
+
+@keyframes buttonGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.bg-white button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.bg-white button:hover::before {
+  left: 100%;
+}
+
+.bg-white button::after {
   content: '🛒';
   margin-left: 8px;
   transition: transform 0.3s ease;
 }
 
-.buy-button:hover::after {
-  transform: scale(1.2);
+.bg-white button:hover::after {
+  transform: scale(1.2) rotate(5deg);
 }
 
-/* Эффект пульсации для привлечения внимания */
-.product-card {
-  animation: slideInUp 0.6s ease-out, pulse-glow 4s ease-in-out infinite 2s;
+.bg-white button:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 12px 30px rgba(236, 72, 153, 0.4) !important;
 }
 
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  }
-  50% {
-    box-shadow: 0 10px 30px rgba(255, 182, 193, 0.3);
-  }
+.bg-white button:active {
+  transform: translateY(-1px) !important;
 }
 
-/* Адаптивные улучшения */
-@media (max-width: 768px) {
-  .product-card {
-    margin: 10px;
-  }
-  
-  .product-card:hover {
-    transform: translateY(-4px) scale(1.01);
-  }
-}
-
-/* Дополнительные визуальные эффекты */
-.product-card {
+/* ===== МОДАЛЬНОЕ ОКНО ===== */
+#modal {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
 
-/* Улучшенный фокус для доступности */
-.buy-button:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.5);
+#modal .bg-white {
+  background: linear-gradient(135deg, #ffffff 0%, #fef7ff 100%);
+  border: 2px solid rgba(236, 72, 153, 0.2);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+#modal input {
+  border: 2px solid rgba(236, 72, 153, 0.2) !important;
+  transition: all 0.3s ease !important;
+}
+
+#modal input:focus {
+  outline: none !important;
+  border-color: #ec4899 !important;
+  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.1) !important;
+}
+
+#modal button:last-child {
+  background: linear-gradient(45deg, #ec4899, #f472b6) !important;
+  transition: all 0.3s ease !important;
+}
+
+#modal button:last-child:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(236, 72, 153, 0.3) !important;
+}
+
+/* ===== СЕКЦИИ ===== */
+#about, #delivery {
+  position: relative;
+  overflow: hidden;
+}
+
+#about::before, #delivery::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.05) 0%, transparent 70%);
+  z-index: 0;
+}
+
+#about h2, #delivery h2 {
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 4px rgba(236, 72, 153, 0.1);
+}
+
+#about p, #delivery p {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== ФУТЕР ===== */
+footer {
+  background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+}
+
+footer i {
+  transition: transform 0.3s ease;
+}
+
+footer div:hover i {
+  transform: scale(1.2);
+}
+
+/* ===== АНИМАЦИИ ЗАГРУЗКИ ===== */
+.animate__zoomIn {
+  animation-delay: 0.1s;
+}
+
+.animate__zoomIn:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.animate__zoomIn:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 768px) {
+  .bg-white.rounded-xl.shadow-lg:hover {
+    transform: translateY(-6px) scale(1.02) !important;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  #home h2 {
+    font-size: 1.5rem;
+  }
+  
+  #home p {
+    font-size: 1rem;
+  }
+}
+
+/* ===== ДОПОЛНИТЕЛЬНЫЕ ЭФФЕКТЫ ===== */
+
+/* Плавающая анимация для иконок */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+footer i {
+  animation: float 3s ease-in-out infinite;
+}
+
+footer div:first-child i {
+  animation-delay: 0s;
+}
+
+footer div:last-child i {
+  animation-delay: 1.5s;
+}
+
+/* Улучшенный скролл */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Пульсация для привлечения внимания */
+@keyframes pulse-attention {
+  0%, 100% {
+    box-shadow: 0 10px 30px rgba(236, 72, 153, 0.1);
+  }
+  50% {
+    box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
+  }
+}
+
+.bg-white.rounded-xl.shadow-lg {
+  animation: pulse-attention 4s ease-in-out infinite 2s;
 }
