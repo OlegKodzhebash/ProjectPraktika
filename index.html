@@ -1,1 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rosalia — Цветочный магазин</title>
 
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="bg-pink-50 text-gray-800">
+
+  <!-- Шапка -->
+  <header class="bg-pink-400 shadow-md">
+    <nav class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center text-white">
+      <div class="text-2xl font-bold italic animate__animated animate__fadeInLeft">🌸 Rosalia</div>
+      <ul class="flex gap-6 text-lg animate__animated animate__fadeInRight">
+        <li><a href="#home" class="hover:underline">Главная</a></li>
+        <li><a href="#catalog" class="hover:underline">Каталог</a></li>
+        <li><a href="#about" class="hover:underline">О нас</a></li>
+        <li><a href="#delivery" class="hover:underline">Доставка</a></li>
+        <li><a href="#contacts" class="hover:underline">Популярное</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Главный блок -->
+  <section id="home" class="relative h-[400px] bg-cover bg-center flex items-center justify-center text-white" style="background-image: url('1.jpg')">
+    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+    <div class="relative z-10 text-center animate__animated animate__fadeInUp">
+      <h2 class="text-3xl font-bold mb-4">Добро пожаловать в наш цветочный магазин!</h2>
+      <p class="mb-6 text-lg">Цветы на любой вкус и для любого события. Закажите прямо сейчас!</p>
+      <a href="#catalog" class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded-full transition duration-300">Перейти к покупкам</a>
+    </div>
+  </section>
+
+  <!-- Каталог -->
+  <section id="catalog" class="py-12 px-6">
+    <h2 class="text-2xl font-bold text-center mb-8 text-pink-600">Наши букеты</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Карточка товара -->
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 animate__animated animate__zoomIn">
+        <img src="Roses.jpg" alt="Букет Роз" class="w-full h-56 object-cover">
+        <div class="p-4 text-center">
+          <h3 class="text-xl font-semibold text-gray-700">Букет Роз</h3>
+          <p class="text-pink-500 font-bold text-lg">999 MDL</p>
+          <button onclick="openModal('Букет Роз', '999 MDL')" class="mt-4 bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-full transition">Купить</button>
+        </div>
+      </div>
+
+      <!-- Другие карточки можно скопировать -->
+
+    </div>
+  </section>
+
+  <!-- Модальное окно -->
+  <div id="modal" class="fixed inset-0 bg-black/60 flex items-center justify-center hidden z-50">
+    <div class="bg-white rounded-xl p-6 shadow-lg text-center max-w-md w-full">
+      <h3 class="text-xl font-bold mb-2" id="modalTitle"></h3>
+      <p class="mb-4" id="modalPrice"></p>
+      <input type="text" placeholder="Ваш телефон" class="border rounded px-3 py-2 w-full mb-4" />
+      <button onclick="closeModal()" class="bg-gray-400 hover:bg-gray-500 text-white py-2 px-4 rounded mr-2">Отмена</button>
+      <button class="bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded">Заказать</button>
+    </div>
+  </div>
+
+  <!-- О нас -->
+  <section id="about" class="bg-white py-12 px-6 text-center">
+    <h2 class="text-2xl font-bold text-pink-600 mb-4">О нас</h2>
+    <p class="max-w-3xl mx-auto">Rosalia — это не просто магазин. Это место, где цветы говорят за вас. Мы работаем с 2010 года и создаем букеты, которые запоминаются.</p>
+  </section>
+
+  <!-- Доставка -->
+  <section id="delivery" class="py-12 px-6 bg-pink-100 text-center">
+    <h2 class="text-2xl font-bold text-pink-700 mb-4">Условия доставки</h2>
+    <p class="max-w-3xl mx-auto">Бесплатная доставка по Кишиневу при заказе от 500 MDL. Возможна доставка в день заказа.</p>
+  </section>
+
+  <!-- Подвал -->
+  <footer class="bg-pink-400 text-white py-6 px-4 flex flex-col sm:flex-row justify-between items-center text-sm">
+    <div class="flex items-center gap-3">
+      <i class="fas fa-phone-alt"></i>
+      <span>+373 ХХ ХХХ ХХХ</span>
+    </div>
+    <div class="mt-4 sm:mt-0 flex items-center gap-3">
+      <i class="fas fa-clock"></i>
+      <span>09:00 - 20:00 | Бесплатная доставка по Кишиневу</span>
+    </div>
+  </footer>
+
+  <!-- Скрипт для модального окна -->
+  <script>
+    function openModal(title, price) {
+      document.getElementById('modalTitle').innerText = title;
+      document.getElementById('modalPrice').innerText = price;
+      document.getElementById('modal').classList.remove('hidden');
+    }
+    function closeModal() {
+      document.getElementById('modal').classList.add('hidden');
+    }
+  </script>
+
+</body>
+</html>
