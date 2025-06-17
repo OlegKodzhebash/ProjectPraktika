@@ -388,6 +388,7 @@ nav ul li a:hover::after {
   font-size: 1.8rem;
   font-weight: bold;
   background: linear-gradient(45deg, #ec4899, #f472b6);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: priceGlow 2s infinite;
@@ -427,6 +428,7 @@ nav ul li a:hover::after {
   display: inline-block;
   min-width: 30px;
   background: linear-gradient(135deg, #ec4899, #f472b6);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: digitPulse 1s infinite;
