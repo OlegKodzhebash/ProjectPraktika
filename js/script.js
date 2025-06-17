@@ -26,9 +26,9 @@ document.addEventListener('DOMContentLoaded', function() {
         <ul>
             <li><a href="#home" class="menu-link">🏠 Главная</a></li>
             <li><a href="#catalog" class="menu-link">🌸 Каталог</a></li>
+            <li><a href="#flower-of-day" class="menu-link">⭐ Цветок дня</a></li>
             <li><a href="#about" class="menu-link">ℹ️ О нас</a></li>
             <li><a href="#delivery" class="menu-link">🚚 Доставка</a></li>
-            <li><a href="#contacts" class="menu-link">⭐ Популярное</a></li>
         </ul>
     `;
     document.body.appendChild(mobileMenu);
@@ -67,4 +67,38 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') closeMobileMenu();
     });
+
+    // Таймер обратного отсчета для "Цветка дня"
+    startCountdownTimer();
 });
+
+function startCountdownTimer() {
+    // Устанавливаем время окончания акции (например, через 12 часов от текущего времени)
+    const endTime = new Date().getTime() + (12 * 60 * 60 * 1000); // 12 часов
+    
+    const timer = setInterval(function() {
+        const now = new Date().getTime();
+        const timeLeft = endTime - now;
+        
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            // Перезапускаем таймер на новые 12 часов
+            setTimeout(startCountdownTimer, 1000);
+            return;
+        }
+        
+        const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+        
+        // Обновляем отображение таймера, если элементы существуют
+        const hoursEl = document.getElementById('hours');
+        const minutesEl = document.getElementById('minutes');
+        const secondsEl = document.getElementById('seconds');
+        
+        if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
+        if (minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
+        if (secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
+        
+    }, 1000);
+}
