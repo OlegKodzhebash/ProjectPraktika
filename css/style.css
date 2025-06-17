@@ -1,4 +1,4 @@
-/* ===== УЛУЧШЕННЫЕ СТИЛИ ДЛЯ САЙТА ROSALIA ===== */
+/* СТИЛИ ДЛЯ САЙТА ROSALIA */
 
 /* Общие улучшения */
 * {
@@ -9,7 +9,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* ===== ШАПКА САЙТА ===== */
+/* ШАПКА САЙТА */
 header {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -48,7 +48,7 @@ nav ul li a:hover::after {
   width: 100%;
 }
 
-/* ===== ГЛАВНЫЙ БЛОК ===== */
+/* ГЛАВНЫЙ БЛОК */
 #home {
   position: relative;
   overflow: hidden;
@@ -69,7 +69,7 @@ nav ul li a:hover::after {
   z-index: 10;
 }
 
-/* Улучшенная кнопка в главном блоке */
+/* Кнопка в главном блоке */
 #home a {
   position: relative;
   overflow: hidden;
@@ -97,9 +97,9 @@ nav ul li a:hover::after {
   box-shadow: 0 12px 30px rgba(236, 72, 153, 0.4);
 }
 
-/* ===== КАРТОЧКИ ТОВАРОВ ===== */
+/* КАРТОЧКИ ТОВАРОВ */
 
-/* Улучшенный контейнер карточек */
+/* Контейнер карточек */
 #catalog .grid {
   max-width: 1200px;
   margin: 0 auto;
@@ -288,7 +288,7 @@ nav ul li a:hover::after {
   transform: translateY(-1px) !important;
 }
 
-/* ===== Цветок дня ===== */
+/* Цветок дня */
 
 /* Карточка "Цветок дня" */
 .flower-of-day-card {
@@ -668,7 +668,7 @@ nav ul li a:hover::after {
   }
 }
 
-/* ===== МОДАЛЬНОЕ ОКНО ===== */
+/* МОДАЛЬНОЕ ОКНО */
 #modal {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -712,7 +712,7 @@ nav ul li a:hover::after {
   box-shadow: 0 8px 20px rgba(236, 72, 153, 0.3) !important;
 }
 
-/* ===== СЕКЦИИ ===== */
+/* СЕКЦИИ */
 #about, #delivery {
   position: relative;
   overflow: hidden;
@@ -740,7 +740,7 @@ nav ul li a:hover::after {
   z-index: 1;
 }
 
-/* ===== ФУТЕР ===== */
+/* ФУТЕР */
 footer {
   background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%) !important;
   position: relative;
@@ -765,7 +765,7 @@ footer div:hover i {
   transform: scale(1.2);
 }
 
-/* ===== АНИМАЦИИ ЗАГРУЗКИ ===== */
+/* АНИМАЦИИ ЗАГРУЗКИ */
 .animate__zoomIn {
   animation-delay: 0.1s;
 }
@@ -778,7 +778,7 @@ footer div:hover i {
   animation-delay: 0.3s;
 }
 
-/* ===== АДАПТИВНОСТЬ ===== */
+/* АДАПТИВНОСТЬ */
 @media (max-width: 768px) {
   .bg-white.rounded-xl.shadow-lg:hover {
     transform: translateY(-6px) scale(1.02) !important;
@@ -798,7 +798,7 @@ footer div:hover i {
   }
 }
 
-/* ===== ДОПОЛНИТЕЛЬНЫЕ ЭФФЕКТЫ ===== */
+/* ДОПОЛНИТЕЛЬНЫЕ ЭФФЕКТЫ */
 
 /* Плавающая анимация для иконок */
 @keyframes float {
@@ -818,13 +818,13 @@ footer div:last-child i {
   animation-delay: 1.5s;
 }
 
-/* Улучшенный скролл */
+/* Скролл */
 html {
   scroll-behavior: smooth;
 }
 
 
-/* Пульсация для привлечения внимания */
+/* Пульсация */
 @keyframes pulse-attention {
   0%, 100% {
     box-shadow: 0 10px 30px rgba(236, 72, 153, 0.1);
