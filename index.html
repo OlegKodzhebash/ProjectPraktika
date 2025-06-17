@@ -19,9 +19,15 @@
 
   <!--Hamburger-Menu styles-->
   <link rel="stylesheet" href="css/hamburger-menu.css">
-  
+
+  <!--Background Anim styles-->
+  <link rel="stylesheet" href="css/background_anim.css">
+
 </head>
 <body class="bg-pink-50 text-gray-800">
+
+  <div class="petal-container" aria-hidden="true"></div> 
+
 
   <!-- Шапка -->
   <header class="bg-pink-400 shadow-md">
@@ -52,7 +58,7 @@
 <section id="flower-of-day" class="py-16 px-6 bg-gradient-to-br from-pink-100 via-purple-50 to-pink-100">
   <div class="max-w-4xl mx-auto text-center">
     <h2 class="text-3xl font-bold text-pink-700 mb-2 animate__animated animate__fadeInDown">
-      🌟 Цветок дня
+       Цветок дня
     </h2>
     <p class="text-lg text-gray-600 mb-8 animate__animated animate__fadeInUp">
       Особое предложение только сегодня!
@@ -184,6 +190,7 @@
       document.getElementById('modal').classList.add('hidden');
     }
   </script>
+    <script src ="js/background_anim.js"></script>
   <script src = "js/script.js"></script> 
 
 </body>
