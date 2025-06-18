@@ -102,3 +102,22 @@ function startCountdownTimer() {
         
     }, 1000);
 }
+/* Кнопка "Наверх" */
+const toTopBtn = document.getElementById('toTopBtn');
+
+// Показываем/скрываем кнопку при прокрутке
+window.addEventListener('scroll', () => {
+  if (document.documentElement.scrollTop > 100 || document.body.scrollTop > 100) {
+    toTopBtn.classList.add('show');
+  } else {
+    toTopBtn.classList.remove('show');
+  }
+});
+
+// Плавный скролл наверх при клике
+toTopBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
